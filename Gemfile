@@ -50,6 +50,7 @@ gem 'paranoia'
 
 group :test do
   gem 'rspec-rails'
+  gem 'shoulda-matchers'
   gem 'launchy'
   gem 'database_cleaner'
 end

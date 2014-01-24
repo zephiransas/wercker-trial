@@ -26,4 +26,15 @@ describe Book do
       it{ should == 1 }
     end
   end
+
+  context '必須入力のチェック' do
+    it{ should validate_presence_of(:title) }
+    it{ should validate_presence_of(:author) }
+  end
+
+  context '最大長のチェック' do
+    it{ should ensure_length_of(:title).is_at_most(200) }
+    it{ should ensure_length_of(:author).is_at_most(200) }
+  end
+
 end
