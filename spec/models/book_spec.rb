@@ -26,4 +26,8 @@ describe Book do
       it{ should == 1 }
     end
   end
+  context '失敗するテスト' do
+    subject{ 1 }
+    it{ should == 3 }
+  end
 end
