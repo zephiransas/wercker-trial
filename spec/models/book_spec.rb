@@ -11,4 +11,19 @@ describe Book do
       expect(subject.published_at).to eq Date.new(1980, 2, 10)
     end
   end
+
+  context '論理削除できること' do
+    let(:book){ Book.create(title: '銀河英雄伝説1', author: '田中芳樹', published_at: Date.new(1980, 2, 10)) }
+    before do
+      book.destroy
+    end
+    context '通常では削除されていること' do
+      subject{ Book.all.size }
+      it{ should == 0 }
+    end
+    context 'with_deletedでは存在すること' do
+      subject{ Book.with_deleted.all.size }
+      it{ should == 1 }
+    end
+  end
 end
